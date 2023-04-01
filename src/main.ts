@@ -1,5 +1,5 @@
+import { getOpenAIData } from '.';
 import './style.css';
-import { placeholder } from '.';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div class="container">
@@ -11,9 +11,18 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <button id="validerId">Valider</button>
     </div>
     <div class="blocResultat">
-      <span id="resultatId">${placeholder}</span>
+      <span id="resultatId">Placeholder</span>
     </div>
   </div>
 `;
 
 //setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+
+const input = document.querySelector<HTMLInputElement>('#inputDataId');
+const boutonValider = document.querySelector<HTMLButtonElement>('#validerId');
+
+boutonValider?.addEventListener('click', () => {
+	console.log(input?.value);
+});
+
+getOpenAIData();
